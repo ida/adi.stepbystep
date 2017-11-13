@@ -1,0 +1,16 @@
+<div class="head" metal:define-macro="head">
+  <div class="fields">
+    <div class="fieldset main">
+      <div class="field state">
+        <div class="name" tal:content="string:State">
+          State
+        </div><div
+             tal:content="state"
+             tal:attributes="class string:value ${state_class}">
+          active
+        </div>
+      </div></div><div metal:use-macro="context/step_persons/macros/persons">
+    </div><div metal:use-macro="context/step_times/macros/times">
+    </div>
+  </div>
+</div>

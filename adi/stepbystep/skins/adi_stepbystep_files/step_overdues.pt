@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+<metal:content fill-slot="content">
+  <a title="Go back" href=".">
+  <--
+  </a>
+  <ul tal:define="overdue_steps
+       context/@@adi_stepbystep_main_view/getStepOverdues;">
+    <li tal:repeat="overdue_step overdue_steps">
+      <a tal:attributes="href overdue_step/absolute_url;"
+         title="Got to this overdue step"
+         tal:content="overdue_step/Title">
+Title of overdue step
+      </a>
+    </li>
+    <li tal:condition="python:len(overdue_steps) < 1">
+No overdues were found :-)
+    </li>
+  </ul>
+</metal:content></body></html>

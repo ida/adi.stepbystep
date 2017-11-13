@@ -1,0 +1,52 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="adi.stepbystep">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- Include the sub-packages that use their own zcml-files. -->
+  <include package=".browser" />
+  <include package=".content" />
+  <include file="skins.zcml" /> 
+
+  
+  <genericsetup:registerProfile
+      name="default"
+      title="StepByStep"
+      directory="profiles/default"
+      description="A process-management-tool for Plone"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+  <!-- Register the example-content-profile -->
+  <genericsetup:registerProfile
+      name="samplecontent"
+      title="StepByStep: Example content"
+      directory="profiles/samplecontent"
+      description="Sample content for adi.stepbystep"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+  <!--  A stepbystep is in creation, set index-nr as id: -->
+	<subscriber
+		for=".interfaces.IStep
+		Products.Archetypes.interfaces.IObjectInitializedEvent"
+		handler=".subscriber.setNextId"
+	  />
+
+  <!-- Execute the method 'setupVarious()' living in
+    './setuphandlers.py', when this product is installed: -->
+  <genericsetup:importStep
+      name="adi.stepbystep"
+      title="adi.stepbystep special import handlers"
+      description=""
+      handler="adi.stepbystep.setuphandlers.setupVarious" />
+      />
+
+  <!-- The line below is a marker for paster, keep it for possibly using it. -->
+  <!-- -*- extra stuff goes here -*- -->
+</configure>

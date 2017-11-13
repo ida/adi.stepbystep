@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<contentrules>
+ <rule name="inform-responsible-persons"
+    title="Inform owners of stepbystep-modifications"
+    description="This rules sends a notfication to the owners of an item which, in conjunction with adi.stepbystep, is equal to the responsible person of an ATCTStep."
+    enabled="True" event="zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    stop-after="False">
+  <conditions>
+   <condition type="plone.conditions.PortalType">
+    <property name="check_types">
+     <element>Step</element>
+    </property>
+   </condition>
+  </conditions>
+  <actions>
+   <action type="plone.actions.Mail">
+    <property name="recipients">${owner_emails}</property>
+    <property name="message">Hello,
+     
+     stepbystep "${absolute_url}" you are responsible of, was modified by '${user_id}', you might want to have a look.
+     
+     - - - -
+     Automatic notification
+     			</property>
+    <property name="subject">[Step] Changed</property>
+    <property name="exclude_actor">True</property>
+    <property name="source"/>
+   </action>
+  </actions>
+ </rule>
+ <rule name="rule-1" title="Sendmail to owners on stepbystep creation"
+    description="In conjunction with adi.stepbystep, owners equals the responsible person of an ATCTStep."
+    enabled="True" event="zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    stop-after="False">
+  <conditions>
+   <condition type="plone.conditions.PortalType">
+    <property name="check_types">
+     <element>Step</element>
+    </property>
+   </condition>
+  </conditions>
+  <actions>
+   <action type="plone.actions.Mail">
+    <property name="recipients">${owner_emails}</property>
+    <property name="message">Hello,
+     
+     item ${absolute_url} was added, and you were assigned to be the responsible person.
+     You might want to have a look.
+     
+     - - - 
+     Automatic notification</property>
+    <property name="subject">[Step] New item added</property>
+    <property name="exclude_actor">True</property>
+    <property name="source"/>
+   </action>
+  </actions>
+ </rule>
+ <assignment name="inform-responsible-persons" bubbles="True" enabled="False"
+    location=""/>
+ <assignment name="rule-1" bubbles="True" enabled="False" location=""/>
+</contentrules>

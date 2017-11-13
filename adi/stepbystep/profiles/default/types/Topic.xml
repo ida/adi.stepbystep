@@ -1,0 +1,5 @@
+<object name="Topic">
+<!-- Enable old-style-collections 
+	 By default torned off since > Plone-4 -->
+<property name="global_allow">True</property>
+</object>

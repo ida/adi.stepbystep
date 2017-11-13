@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="adi.stepbystep">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".stepbystep.Step">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IStep"
+        />
+  </class>
+
+</configure>

@@ -1,0 +1,27 @@
+<tal:comment replace="nothing">
+Row of buttons in order of importance, most used last,
+so backwards tab-keying lands on most important button first, after page-load.
+Eliminate spaces rendered by TAL, by putting opening tags rigth after closing
+tags, no linebreak or other space.
+</tal:comment>
+<div class="edit" metal:define-macro="step_buttons"
+  tal:define="url context/absolute_url">
+  <a tal:attributes="href string:${url}/folder_contents"
+     title="Change order and more"
+     alt="Tetragram for centre"
+     tal:content="string:&equiv;">
+    Folder contents
+  </a><a class="add sub"
+     tal:attributes="href string:${url}/createObject?type_name=Step"
+     title="Add sub-step"
+     tal:content="string:+">
+    Add sub-step
+  </a><tal:comment tal:replace="nothing"><a class="add"
+     href="../createObject?type_name=Step"
+     title="Add next-step"
+     tal:content="string:+">
+    Add next-step 
+  </a></tal:comment><a class="edit"
+     tal:attributes="href string:${url}/edit"
+     title="Edit this step">&#9998;
+  </a></div>

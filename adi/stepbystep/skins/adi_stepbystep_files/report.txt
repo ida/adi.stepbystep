@@ -1,0 +1,7 @@
+STA cd /home/ida/Serve/deveggs/adi.stepbystep; devgen checkoutLatestTag;cd /home/ida/Serve/Production; ./bin/instance restart
+SCS First, rewinding head to replay your work on top of it...
+SCS Fast-forwarded master to f0cfd9d5c2eca5b576aaa07159462ad702411418.
+SCS . 
+SCS daemon process restarted, pid=9912
+END cd /home/ida/Serve/deveggs/adi.stepbystep; devgen checkoutLatestTag;cd /home/ida/Serve/Production; ./bin/instance restart
+

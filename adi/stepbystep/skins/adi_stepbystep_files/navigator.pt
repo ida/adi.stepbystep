@@ -1,0 +1,53 @@
+<div id="navigator" metal:define-macro="navigator">
+<tal:siblings tal:define="
+siblings python: context.aq_parent.getFolderContents();"><tal:sibling
+tal:repeat="sibling siblings"><tal:this
+tal:condition="python: sibling['id']==context.getId()"
+tal:define="index repeat/sibling/index;
+hasNext python: index < len(siblings) -1;
+hasPrev python: index > 0;">
+<tal:prev tal:condition="hasPrev" tal:define="href python:
+'../' + context.aq_parent.getFolderContents()[index - 1]['id'];">
+  <a tal:attributes="href href" title="Step back" class="previous"
+  tal:content="string:&larr;">
+  Step back
+  </a></tal:prev>
+  <a tal:condition="not: hasPrev" disabled
+       title="No previous steps available"
+       tal:content="string:&larr;">
+        No previous steps available
+  </a>
+  <tal:comment tal:replace="nothing">
+  <a href="./.." title="Step up" class="up" tal:content="string:&uarr;">
+          Step up
+  </a>
+  </tal:comment>
+    <tal:next
+      tal:condition="hasNext"><a
+        tal:define="href python:
+        '../' + context.aq_parent.getFolderContents()[index + 1]['id']"
+        tal:attributes="href href" title="Step forward" class="next"
+        tal:content="string:&rarr;">
+          Step forward
+  </a></tal:next><a tal:condition="not: hasNext" disabled
+        title="No next step available" tal:content="string:&rarr;">
+          No next step available
+  </a>
+  <tal:comment tal:replace="nothing">
+  <tal:kondinator
+  tal:condition="python:len(context.getFolderContents()) > 0"><tal:definator
+    tal:define="first_child_id python:context.getFolderContents()[0].id">
+    <a title="Step down" tal:content="string:&darr;" class="down"
+      tal:attributes="href python:
+                      context.absolute_url() + '/' + first_child_id;">
+        Step down
+    </a>
+  </tal:definator></tal:kondinator>
+  <a disabled
+  tal:condition="python:len(context.getFolderContents()) < 1"
+  title="No child-steps available"
+  tal:content="string:&darr;">
+  No child-steps available
+  </a>
+  </tal:comment>
+</tal:this></tal:sibling></tal:siblings></div>

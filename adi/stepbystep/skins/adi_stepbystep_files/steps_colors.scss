@@ -1,0 +1,81 @@
+//
+// COLORS
+//
+$blue_darkest: #011435;
+$blue_darker: #08284F;
+$blue_dark: #223772;
+$green: #207207;
+$orange: orange;
+// Daytime:
+$bg_primary: #fff;
+$bg_secondary: #f1f1f1;
+$bg_tertiary: #272727;
+$col_link: $blue_dark;
+$col_primary: #444;
+$col_secondary: #a1a1a1;
+/* Nightsight, (un-)comment, to switch:
+$bg_primary: $blue_darkest;
+$bg_secondary: $bg_primary;
+$bg_tertiary: $blue_darker;
+$col_primary: #fff!important; 
+*/
+/* End of nighsight. */
+// Workflow-states and -transitions:
+$col_active: $green;
+$col_closed: $blue_dark;
+$col_new: inherit;
+$col_paused: $orange;
+// Odd/even-items:
+$brightness_factor: 1.27;
+$bg_even: $bg_secondary / $brightness_factor; // a darker side of bg_secondary
+$bg_odd: $bg_secondary * $brightness_factor; // a brighter shade of bg_secondary
+body {
+    background: $bg_primary;
+    color: $col_primary;
+}
+a {
+  color: $col_link;
+}
+.step .head {
+    background: $bg_secondary;
+    color: $col_secondary;
+}
+.controls {
+    background: $bg_tertiary;
+}
+/*
+// Odd-even-backgrounds for list of steps:
+.step:nth-child(odd) {
+    background: $bg_odd;
+    .step:nth-child(odd) {
+        background: $bg_even;
+    }
+    .step:nth-child(even) {
+        background: $bg_odd;
+    }
+}
+.step:nth-child(even) {
+    background: $bg_even;
+}
+*/
+// Workflow-states and -transitions:
+.start, .state-active { 
+  color: $col_active;
+}
+.state-closed {
+  color: $col_closed;
+  text-decoration: line-through;
+}
+.close, .state-new {
+  color: $col_new;
+}
+.pause, .state-paused {
+  color: $col_paused;
+}
+//
+// BORDERS
+//
+$border_regular: 0.1em solid silver;
+//.steps { border: $border_regular; }
+.step { border-top: $border_regular; }
+//.steps > .step { border-top: none; }

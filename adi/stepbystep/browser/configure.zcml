@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="adi.stepbystep">
+
+    <include package="plone.app.contentmenu" />
+    <include package="plone.app.registry" />
+
+    <!-- Resolve component-lookup-error, triggered of
+         `cmf.SetOwnPassword`, used below: -->
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <!-- Resource directory -->
+    <browser:resourceDirectory
+        name="adi.stepbystep.resources"
+        directory="resources"
+    />
+
+	<!-- Views -->
+    <browser:page
+        for="*"
+        name="adi_stepbystep_main_view"
+        class=".resources.main.View"
+        permission="zope2.View"
+        layer="adi.stepbystep.browser.interfaces.IAdiStep"
+      />
+
+</configure>

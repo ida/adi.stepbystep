@@ -1,0 +1,20 @@
+<div class="steps" metal:define-macro="steps_body"
+     tal:define="isTopStep isTopStep|nothing;">
+  <metal:item use-macro="context/step_main/macros/step">
+This step
+  </metal:item>
+  <div id="text" tal:content="structure context/getText|nothing">
+Text
+  </div>
+  <div id="children" tal:define="children python:context.getFolderContents();
+    hasChildren python:len(children) > 0 " tal:condition="hasChildren">
+    <tal:loop tal:repeat="child children">
+      <tal:child tal:define="context python:child.getObject(); isTopStep nothing;
+                             state context/plone_context_state/workflow_state;">
+        <metal:item use-macro="context/step_main/macros/step">
+Child step
+        </metal:item>
+      </tal:child>
+    </tal:loop>
+  </div>
+</div>

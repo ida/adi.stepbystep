@@ -1,0 +1,15 @@
+<tal:activities metal:define-macro="step_activities">
+  <a title="Go back" href=".">
+    <--
+  </a>
+  <button class="toggleTotalsOnly" title="Show only total-entries">
+  <tal:comment tal:replace="nothing">
+    TODO: only show when js enabled
+  </tal:comment>
+Totals
+  </button>
+  <div tal:define="html
+       context/@@adi_stepbystep_main_view/getActivitiesReport;"
+       tal:content="structure html">
+  </div>
+</tal:activities>

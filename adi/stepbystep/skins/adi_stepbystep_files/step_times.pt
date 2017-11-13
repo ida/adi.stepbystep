@@ -1,0 +1,28 @@
+<div class="fieldset times" metal:define-macro="times" tal:define="
+  age nocall: context/adi_stepbystep_main_view/getAge;
+  activity nocall: context/adi_stepbystep_main_view/getActiveTime;
+  total_activity nocall: context/adi_stepbystep_main_view/getActiveTimes;
+  hasActivity python: total_activity > 0;"><div
+  class="field age">
+    <div class="name" tal:content="string:Age">
+      Age
+    </div><div class="value"><span
+      tal:repeat="item age" tal:content="item">
+      </span>
+    </div>
+  </div><div class="field activity">
+    <div class="name" tal:content="string:Activity">
+      Activity
+    </div><div class="value"><span
+      tal:repeat="item activity" tal:content="item">
+      </span>
+    </div>
+  </div><div class="field total_activity" tal:condition="hasActivity">
+    <div class="name" tal:content="string:Activities">
+      Activities
+    </div><div class="value"><span
+      tal:repeat="item total_activity" tal:content="item">
+      </span>
+    </div>
+  </div>
+</div>

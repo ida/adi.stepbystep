@@ -1,0 +1,24 @@
+<div tal:define="state context/plone_context_state/workflow_state;
+     trans_url string:content_status_modify?workflow_action=;"
+     class="transitions" metal:define-macro="step_transitions"><a
+  tal:content="string:&#11035;"
+  tal:condition="python: state == 'active'"
+  tal:attributes="href string:${trans_url}close;
+                  class string:close;
+                  title string:Stop">
+    Stop
+  </a><a tal:content="string:&#9208;"
+    tal:condition="python:
+    state != 'paused' and state != 'new' and state != 'closed'"
+    tal:attributes="href string:${trans_url}pause;
+                    class string:pause;
+                    title string:Pause">
+    Pause
+  </a><a tal:content="string:&#9654;"
+     tal:condition="python: state != 'active'"
+     tal:attributes="href string:${trans_url}start;
+                     class string:start;
+                     title string:Start">
+    Start
+  </a>
+</div>

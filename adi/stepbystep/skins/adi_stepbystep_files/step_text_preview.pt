@@ -1,0 +1,19 @@
+<span class="text preview" metal:define-macro="text_preview"
+tal:define="max_chars python: 50; text_preview text_plain;">
+  <span class="cropped"
+        tal:condition="python:len(text_preview) > max_chars"
+        tal:define="text_cropped python:
+                    str(text_preview)[:max_chars]">
+    <span class="text" tal:content="text_cropped">
+Cropped text
+    </span>
+    <span class="elli">
+(...)
+    </span>
+  </span>
+  <span class="fulltext"
+       tal:condition="python:len(text_preview) <= max_chars"
+       tal:content="text_preview">
+Full text
+  </span>
+</span>

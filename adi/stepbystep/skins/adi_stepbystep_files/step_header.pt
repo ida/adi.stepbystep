@@ -1,0 +1,49 @@
+<div class="header" metal:define-macro="header">
+  <a title="Go up" href=".." class="button"
+     tal:content="string:&uarr;" tal:condition="isTopStep">
+Go up
+  </a><tal:haschildren tal:condition="hasChildSteps"><a
+    tal:attributes="title string:Show children;
+                    href string:${href}/steps_body#children;
+                    class string:loadLink showChildren button;"
+     tal:condition="not: isTopStep"
+     tal:content="string:&nbsp;">
+Toggle children
+  </a></tal:haschildren><a tal:attributes="title string:No children;
+                     class string:noChildren button;"
+     disabled
+     tal:condition="not: hasChildSteps"
+     tal:content="string:&nbsp;">
+Toggle children dummy
+  </a><span class="posnr" tal:condition="isRootStep" tal:content="string:0">
+0
+  </span><span class="posnr" tal:content="nrs">
+1.2
+  </span>
+  <a tal:content="title" tal:attributes="
+    href href; title state; class string:title ${state_class};">
+Title
+  </a>
+  <tal:hastext tal:condition="python: text != ''">
+    <a tal:condition="isTopStep"
+       tal:attributes="href string:${href}/steps_body#text;
+                       class string:loadLink hideText;
+                       title string:Hide text;"
+       tal:content="string:&nbsp;">
+Load or toggle text for first step
+    </a>
+    <a tal:condition="not: isTopStep"
+       tal:attributes="href string:${href}/steps_body#text;
+                       class string:loadLink showText;
+                       title string:Show text;"
+       tal:content="string:&nbsp;">
+Load or toggle text for child-steps of first step
+    </a>
+    <tal:comment tal:replace="nothing">
+      <tal:text_preview
+        metal:use-macro="context/step_text_preview/macros/text_preview">
+Text preview
+      </tal:text_preview>
+      </tal:comment>
+  </tal:hastext>
+</div>

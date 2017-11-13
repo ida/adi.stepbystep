@@ -1,0 +1,6 @@
+<div class="controls buttons" metal:define-macro="controls">
+  <div metal:use-macro="context/navigator/macros/navigator">
+  </div><div metal:use-macro="context/step_buttons/macros/step_buttons">
+  </div><div metal:use-macro="context/step_transitions/macros/step_transitions">
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="step" metal:define-macro="step" tal:define="
+  href context/absolute_url;
+  id context/id;
+  title context/Title;
+  text context/getText|nothing;
+  text_plain  nocall: context/adi_stepbystep_main_view/getPlainText;
+  isRootStep nocall: context/adi_stepbystep_main_view/isRootStep;
+  nrs nocall: nocall: context/adi_stepbystep_main_view/getStepPosNrs;
+  hasChildSteps nocall: context/adi_stepbystep_main_view/hasChildSteps;
+  reporter nocall: context/adi_stepbystep_main_view/getReporter;
+  state context/plone_context_state/workflow_state;
+  state_class string:state-${state};
+  ">
+  <div metal:use-macro="context/step_head/macros/head">
+Head
+  </div>
+  <div metal:use-macro="context/step_header/macros/header">
+Header
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<tal:steps-foot metal:define-macro="steps_foot">
+<metal:item use-macro="context/controls/macros/controls">
+Controls
+</metal:item>
+</tal:steps-foot>
+

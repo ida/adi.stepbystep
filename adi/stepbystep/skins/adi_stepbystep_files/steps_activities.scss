@@ -1,0 +1,16 @@
+ul, li {
+  height: 1.5em;
+  overflow: hidden;
+}  
+li {
+  border: 1px dotted;
+  display: inline-block;
+  width: 14%;
+}
+ul:first-child,
+ul:last-child {
+  font-weight: bold;
+}
+span:not(:last-child) {
+  margin-right: 0.27em;
+}

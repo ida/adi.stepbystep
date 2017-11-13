@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+
+<!-- TODO: Check purging!!! -->
+
+<object name="portal_workflow">
+
+ <object name="adi_stepbystep_workflow" meta_type="Workflow"/>
+
+ <bindings>
+  <type type_id="Step">
+   <bound-workflow workflow_id="adi_stepbystep_workflow"/>
+  </type>
+ </bindings>
+
+</object>

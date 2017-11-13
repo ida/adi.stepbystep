@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+<head>
+<tal:steps_shared_styles
+  metal:use-macro="context/steps_main/macros/steps_shared_styles">
+</tal:steps_shared_styles>
+<link rel="stylesheet" href="steps_activities.css">
+<tal:steps_shared_scripts
+  metal:use-macro="context/steps_main/macros/steps_shared_scripts">
+</tal:steps_shared_scripts>
+<script src="step_activities.js"></script>
+</head>
+<body tal:define="isTopStep string:isTopStep;">
+<div metal:use-macro="context/steps_head/macros/steps_head">
+Steps-head
+</div>
+<div metal:use-macro="context/step_activities/macros/step_activities">
+Steps-activities
+</div>
+</body>
+</html>

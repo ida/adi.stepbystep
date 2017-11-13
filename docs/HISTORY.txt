@@ -1,0 +1,16 @@
+Changelog
+=========
+
+0.2 (unreleased)
+---------------
+
+- On site crea throws "KeyError linkable", seems not configurable,
+commented out in tinymce.xml for now, added manually in controlpanel.
+
+
+0.1 (unreleased)
+---------------
+
+- Provide contenttype (Archetype) 'Stepbystep'.
+
+- Initial release

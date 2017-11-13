@@ -1,0 +1,27 @@
+<div class="stepsHead" metal:define-macro="steps_head">
+  <a href="step_overview"
+     title="See all steps. Triage, edit and track them, here.">
+<b>
+overview
+</b>
+  </a>
+  |
+  <a href="step_overdues"
+     title="See steps which have passed their expiration-date">
+overdues
+  </a>
+  |
+  <a href="steps_activities"
+     title="Go to full activity-report">
+activities
+  </a>
+  |
+  <a href="steps_user"
+     title="See all steps you're responsible of"
+     tal:define="username python:
+                 request.AUTHENTICATED_USER.getUserName();
+                 isAnonymous python: username == 'Anonymous User';"
+     tal:content="username">
+username
+  </a>
+</div>

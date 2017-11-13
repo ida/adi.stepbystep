@@ -1,0 +1,77 @@
+/* Please put any declarations of background-, border- and
+ * color-properties in 'steps_colors.scss'. */
+@import 'variables';
+
+body {
+    line-height: $line_height_primary;
+    font-family: $font_family_primary;
+    font-size: $font_size_primary;
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: $controls_margin_bottom;
+    margin-bottom: $controls_height + $controls_margin_bottom;
+}
+a:focus {
+  outline: 1px dotted;  
+}
+.stepsHead {
+    text-align: right;
+}
+.header:not(:first-line) {
+  padding-left: $button_length; // same indent as line above
+}
+#text {
+  padding-left: $button_length; // same indent as ele above
+}
+#children {
+//    margin-left: 1.5em; // accumulate indent per generation
+}
+//
+// BUTTONS
+// (Exception of the rule: Also background- and color-properties, here.)
+.buttons a,
+.button {
+    display: inline-block;
+    min-width: $button_length;
+    min-height: $line_height_primary;
+    text-align: center;
+}
+.hideChildren,
+.noChildren,
+.showText,
+.showChildren {
+  color: inherit;
+}
+.showChildren {
+  background: url("arrowRight.png") no-repeat center;
+}
+.hideChildren {
+  background: url("arrowDown.png") no-repeat center;
+}
+.hideText:before {
+    content: '-';
+}
+.showText:before {
+    content: '+';
+}
+//
+// CONTROLS
+//
+.controls {
+    position: fixed;
+    bottom: $controls_margin_bottom;
+    right: 0;
+    width: 100%;
+    line-height: $controls_height;
+    height: $controls_height;
+    &:hover {
+        height: auto;
+    }
+    & > div {
+        display: inline;
+    }
+    .buttons {
+        padding: 0 1em;
+    }
+}

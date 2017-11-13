@@ -1,0 +1,63 @@
+.head {
+    float: right;
+    opacity: 0.75;
+    div {
+        display: inline-block;
+    }
+    div.fieldset {
+        display: inline; // break the line
+    }
+    .fields {
+        // First hide all fields:
+        .responsibles .value span,
+        div {
+            display: none;
+        }
+        // But show these initially:
+        //.activity,
+        //.activity .value,
+        .responsibles,
+        .responsibles .value,
+        .responsibles .value span:first-child {
+            display: inline-block;
+        }
+        .fieldset {
+            display: inline; // break the line
+        }
+    }
+    // On hover show all fields:
+    &:hover {
+        float: none;
+        div {
+            display: inline-block;
+        }
+        .responsibles .value span,
+        div.fieldset {
+            display: inline; // break the line
+        }
+    }
+    // Field-separations:
+    .field {
+        margin-left: 0.5em;
+        .name:after {
+            content: ':';
+        }
+        .value {
+            margin-left: 0.25em;
+        }
+    }
+    // Make time-fields align vertically in listing view,
+    // by setting a constant width, no matter how much the numbers
+    // consume, as e.g. a '1' is narrower than an '8':
+    .times span {
+        display: inline-block;
+        margin-left: 0.25em;
+        width: 1.125em;
+    }
+    .times span:nth-child(odd) { // numbers, e.g. '08'
+        text-align: right; // cling to right side, wanna be as close as possible to unit
+    }
+    .times span:nth-child(even) { // units, e.g. 'sec'
+        width: 1.75em;
+    }
+}

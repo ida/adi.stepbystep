@@ -1,0 +1,57 @@
+<tal:group metal:define-macro="group"
+           tal:define="isGroup python: len(persons) > 1;">
+  <span tal:condition="python: len(persons) < 1" tal:replace="string:-" />
+  <tal:person tal:repeat="person persons">
+    <span class="value" tal:content="person">
+      A person
+    </span><tal:separators tal:define="
+      index repeat/person/index;
+      isLast python: index == len(persons) -1;"><span
+        tal:condition="not:isLast" tal:content="string:,">
+        ,
+      </span><span
+        tal:condition="isLast" tal:content="string:.">
+        .
+      </span>
+    </tal:separators>
+  </tal:person>
+</tal:group>
+<div class="fieldset persons" metal:define-macro="persons"><div
+  class="field responsibles">
+    <div class="name" tal:content="string:Responsibles">
+      Responsibles:
+    </div><div 
+    class="value" tal:define="persons context/Creators">
+      <tal:persons metal:use-macro="context/step_persons/macros/group">
+        Persons
+      </tal:persons>
+    </div>
+  </div><div
+    class="field contributors">
+    <div class="name" tal:content="string:Contributors">
+      Contributors:
+    </div><div 
+      class="value" tal:define="persons context/Contributors">
+      <tal:persons metal:use-macro="context/step_persons/macros/group">
+        Persons
+      </tal:persons>
+    </div>
+  </div><div
+    class="field reporter">
+    <div class="name" tal:content="string:Reporter">
+      Reporter:
+    </div><div 
+      class="value" tal:content="reporter">
+      The owner
+    </div>
+  </div><div
+  class="field watchers"
+    tal:define="persons context/Rights;
+          persons python: persons.split()">
+    <div class="name" tal:content="string:Watchers">
+      Watchers:
+    </div>
+      <tal:persons metal:use-macro="context/step_persons/macros/group">
+        Persons
+      </tal:persons>
+      </div></div>

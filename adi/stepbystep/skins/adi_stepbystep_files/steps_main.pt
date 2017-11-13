@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+<head>
+<tal:steps_shared_styles metal:define-macro="steps_shared_styles">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="steps_colors.css">
+  <link rel="stylesheet" href="steps_base.css">
+</tal:steps_shared_styles>
+<link rel="stylesheet" href="steps_main.css">
+<link rel="stylesheet" href="step_head.css">
+<tal:steps_shared_scripts metal:define-macro="steps_shared_scripts">
+  <script src="++resource++plone.app.jquery.js"></script>
+</tal:steps_shared_scripts>
+<script src="++resource++adi.info.resources/main.js"></script>
+<script src="steps_main.js"></script>
+</head>
+<body tal:define="isTopStep string:isTopStep;">
+<!--
+-->
+<div metal:use-macro="context/global_statusmessage/macros/portal_message">
+Info message
+</div>
+<div metal:use-macro="context/steps_head/macros/steps_head">
+Steps-head
+</div>
+<div metal:use-macro="context/steps_body/macros/steps_body">
+Steps-body
+</div>
+<div metal:use-macro="context/steps_foot/macros/steps_foot">
+Steps-foot
+</div>
+</body>
+</html>

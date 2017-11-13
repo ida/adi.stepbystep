@@ -1,0 +1,66 @@
+.portaltype-step input[type=submit], .portaltype-step input[type=password],
+.portaltype-step input[type=text], .portaltype-step textarea {
+  width: 80%;
+  outline: none;
+  border: 1px dashed #90C3D4;
+}
+.portaltype-step input[type=submit] {
+  width: auto;
+  min-width: 1.61em;
+  border-radius: 27%;
+}
+.template-atct_edit.portaltype-step #fieldsetlegend-creators:before {
+  content: 'Persons';
+}
+.template-atct_edit.portaltype-step #archetypes-fieldname-contributors:before {
+  content: 'Contributors';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #archetypes-fieldname-rights:before {
+  content: 'Watchers';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #fieldsetlegend-default:before {
+  content: 'Text';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #archetypes-fieldname-creators:before {
+  content: 'Responsibles';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #archetypes-fieldname-effectiveDate:before {
+  content: 'Due start-time';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #archetypes-fieldname-expirationDate:before {
+  content: 'Due end-time';
+  font-weight: bold;
+}
+.template-atct_edit.portaltype-step #fieldsetlegend-default span,
+.template-atct_edit.portaltype-step #fieldsetlegend-creators span {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+}
+.template-atct_edit.portaltype-step #edit-bar,
+.template-atct_edit.portaltype-step .fieldUploadFile,
+.template-atct_edit.portaltype-step .fieldTextFormat,
+.template-atct_edit.portaltype-step .label,
+.template-atct_edit.portaltype-step legend,
+.template-atct_edit.portaltype-step label,
+.template-atct_edit.portaltype-step .documentFirstHeading,
+.template-atct_edit.portaltype-step #content > div:nth-child(2),
+.template-atct_edit.portaltype-step #fieldset-categorization,
+.template-atct_edit.portaltype-step #fieldsetlegend-categorization,
+.template-atct_edit.portaltype-step #fieldset-categorization,
+.template-atct_edit.portaltype-step .suppressVisualEditor,
+.template-atct_edit.portaltype-step #fieldset-settings,
+.template-atct_edit.portaltype-step #fieldsetlegend-settings,
+.template-atct_edit.portaltype-step #cmfeditions_version_comment_block {
+  display: none;
+}
+.template-atct_edit.portaltype-step #fieldset-dates ~ label,
+.template-atct_edit.portaltype-step input[name="responsiblePerson"] ~ label {
+  display: inline-block;
+}

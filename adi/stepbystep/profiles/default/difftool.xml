@@ -1,0 +1,9 @@
+<object>
+  <difftypes>
+      <type portal_type="Step">
+        <!-- Note that "any" matches all fields, specify single 
+             fields with the fieldname of your schemamodel. -->
+        <field name="any" difftype="Compound Diff for AT types"/>
+      </type>
+  </difftypes>
+</object>

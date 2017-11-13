@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body><metal:content fill-slot="content"><div id="content">
+  <a title="Go back" href=".">
+  <--
+  </a>
+	<ul tal:define="my_stepbystep nocall: context/@@adi_stepbystep_main_view/my_stepbystep;">
+	  All stepbystep, I am responsible of:
+		<li style="display:block" tal:repeat="stepbystep my_stepbystep">
+			<a tal:attributes="href stepbystep/absolute_url">
+				<span tal:replace="stepbystep/Title" />
+			</a>
+		</li>
+  </ul>
+	<ul tal:define="my_activetimes nocall: context/@@adi_stepbystep_main_view/my_activetimes;">
+		My active times:
+    <li tal:content="my_activetimes">
+		</li>
+	</ul>
+</div></metal:content></body></html>
