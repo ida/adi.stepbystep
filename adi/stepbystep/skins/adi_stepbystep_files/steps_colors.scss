@@ -22,7 +22,7 @@ $col_primary: #fff!important;
 /* End of nighsight. */
 // Workflow-states and -transitions:
 $col_active: $green;
-$col_closed: $blue_dark;
+$col_stopped: $blue_dark;
 $col_new: inherit;
 $col_paused: $orange;
 // Odd/even-items:
@@ -62,11 +62,11 @@ a {
 .start, .state-active { 
   color: $col_active;
 }
-.state-closed {
-  color: $col_closed;
+.state-stopped {
+  color: $col_stopped;
   text-decoration: line-through;
 }
-.close, .state-new {
+.stop, .state-new {
   color: $col_new;
 }
 .pause, .state-paused {

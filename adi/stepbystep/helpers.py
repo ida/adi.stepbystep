@@ -78,7 +78,7 @@ def getActiveTimes(item, user=None):
 def getActivityEntries(items, user=None):
     """
     For each passed item-object, search workflow-history
-    for start- pause- and close-transitions, compute activity
+    for start- pause- and stop-transitions, compute activity
     compute activity therof, return activity-entries.
     That requires edit-permissons for the viewing user.
     If the parameter 'user' is sepcified, will only show entries
@@ -111,7 +111,7 @@ def getActivityEntries(items, user=None):
             time = time.millis()
             delta = end_time - time
 
-            if action == 'Pause' or action == 'Close':
+            if action == 'Pause' or action == 'Stop':
                 end_time = time
                 end_time_str = time_str
                 if time > steps_end:

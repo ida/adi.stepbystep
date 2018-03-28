@@ -5,7 +5,7 @@
  <permission>Modify portal content</permission>
  <permission>View</permission>
  <state state_id="active" title="Active">
-  <exit-transition transition_id="close"/>
+  <exit-transition transition_id="stop"/>
   <exit-transition transition_id="pause"/>
   <exit-transition transition_id="reset"/>
   <exit-transition transition_id="start"/>
@@ -28,8 +28,8 @@
    <permission-role>Manager</permission-role>
   </permission-map>
  </state>
- <state state_id="closed" title="Closed">
-  <exit-transition transition_id="close"/>
+ <state state_id="stopped" title="Stopped">
+  <exit-transition transition_id="stop"/>
   <exit-transition transition_id="pause"/>
   <exit-transition transition_id="reset"/>
   <exit-transition transition_id="start"/>
@@ -53,7 +53,7 @@
   </permission-map>
  </state>
  <state state_id="new" title="New">
-  <exit-transition transition_id="close"/>
+  <exit-transition transition_id="stop"/>
   <exit-transition transition_id="pause"/>
   <exit-transition transition_id="reset"/>
   <exit-transition transition_id="start"/>
@@ -77,7 +77,7 @@
   </permission-map>
  </state>
  <state state_id="paused" title="Paused">
-  <exit-transition transition_id="close"/>
+  <exit-transition transition_id="stop"/>
   <exit-transition transition_id="pause"/>
   <exit-transition transition_id="reset"/>
   <exit-transition transition_id="start"/>
@@ -100,8 +100,8 @@
    <permission-role>Manager</permission-role>
   </permission-map>
  </state>
- <transition transition_id="close" title="" new_state="closed" trigger="USER" before_script="" after_script="">
-  <action url="%(content_url)s/content_status_modify?workflow_action=close" category="workflow" icon="">Close</action>
+ <transition transition_id="stop" title="" new_state="stopped" trigger="USER" before_script="" after_script="">
+  <action url="%(content_url)s/content_status_modify?workflow_action=stop" category="workflow" icon="">Stop</action>
   <guard>
   </guard>
  </transition>

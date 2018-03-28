@@ -3,13 +3,13 @@
      class="transitions" metal:define-macro="step_transitions"><a
   tal:content="string:&#11035;"
   tal:condition="python: state == 'active'"
-  tal:attributes="href string:${trans_url}close;
-                  class string:close;
+  tal:attributes="href string:${trans_url}stop;
+                  class string:stop;
                   title string:Stop">
     Stop
   </a><a tal:content="string:&#9208;"
     tal:condition="python:
-    state != 'paused' and state != 'new' and state != 'closed'"
+    state != 'paused' and state != 'new' and state != 'stopped'"
     tal:attributes="href string:${trans_url}pause;
                     class string:pause;
                     title string:Pause">
