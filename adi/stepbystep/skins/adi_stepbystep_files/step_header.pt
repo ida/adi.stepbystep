@@ -40,10 +40,10 @@ Load or toggle text for first step
 Load or toggle text for child-steps of first step
     </a>
     <tal:comment tal:replace="nothing">
+    </tal:comment>
       <tal:text_preview
         metal:use-macro="context/step_text_preview/macros/text_preview">
 Text preview
       </tal:text_preview>
-      </tal:comment>
   </tal:hastext>
 </div>

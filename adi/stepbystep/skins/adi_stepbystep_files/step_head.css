@@ -1,0 +1,49 @@
+.head {
+  float: right;
+  opacity: 0.75;
+}
+.head div {
+  display: inline-block;
+}
+.head div.fieldset {
+  display: inline;
+}
+.head .fields .responsibles .value span, .head .fields div {
+  display: none;
+}
+.head .fields .responsibles, .head .fields .responsibles .value,
+.head .fields .responsibles .value span:first-child {
+  display: inline-block;
+}
+.head .fields .fieldset {
+  display: inline;
+}
+.head:hover {
+  float: none;
+}
+.head:hover div {
+  display: inline-block;
+}
+.head:hover .responsibles .value span, .head:hover div.fieldset {
+  display: inline;
+}
+.head .field {
+  margin-left: 0.5em;
+}
+.head .field .name:after {
+  content: ':';
+}
+.head .field .value {
+  margin-left: 0.25em;
+}
+.head .times span {
+  display: inline-block;
+  margin-left: 0.25em;
+  width: 1.125em;
+}
+.head .times span:nth-child(odd) {
+  text-align: right;
+}
+.head .times span:nth-child(even) {
+  width: 1.75em;
+}
